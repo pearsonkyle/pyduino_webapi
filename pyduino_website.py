@@ -56,6 +56,22 @@ def hello_world():
     return render_template('index.html', author=author, value=100*(readval/1023.))
 
 
+# unsecure API urls
+@app.route('/turnon', methods=['GET'] )
+def turn_on():
+    # turn on LED on arduino
+    a.digital_write(LED_PIN,1)
+    return redirect( url_for('hello_world') )
+
+
+@app.route('/turnoff', methods=['GET'] )
+def turn_on():
+    # turn off LED on arduino
+    a.digital_write(LED_PIN,0)
+    return redirect( url_for('hello_world') )
+
+
+
 if __name__ == "__main__":
 
     # lets launch our webpage!
