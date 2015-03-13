@@ -65,7 +65,7 @@ def turn_on():
 
 
 @app.route('/turnoff', methods=['GET'] )
-def turn_on():
+def turn_off():
     # turn off LED on arduino
     a.digital_write(LED_PIN,0)
     return redirect( url_for('hello_world') )
